@@ -1,0 +1,38 @@
+<script>
+    "use strict";
+
+    // Output prime numbers
+    // importance: 3
+    // An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
+
+    // In other words, n > 1 is a prime if it can’t be evenly divided by anything except 1 and n.
+
+    // For example, 5 is a prime, because it cannot be divided without a remainder by 2, 3 and 4.
+
+    // Write the code which outputs prime numbers in the interval from 2 to n.
+
+    // For n = 10 the result will be 2,3,5,7.
+
+    // P.S. The code should work for any n, not be hard-tuned for any fixed value.
+
+    let n = +prompt('What is the maximum prime number you want?');
+    let composites = [false, false, false, false];
+    let out = [2];
+
+    for (let i = 3; i * i <= n; i += 2) {
+        if (!composites[i / 2]) {
+            for (let j = i * i; j <= n; j += i * 2) {
+                composites[j / 2] = true;
+            }
+        }
+    }
+
+    for (let i = 3; i <= n; i += 2) {
+        if (!composites[i / 2]) {
+            out.push(i);
+        }
+    }
+
+    alert(`prime numbers up to ${n} are: ${out}`);
+
+</script>
