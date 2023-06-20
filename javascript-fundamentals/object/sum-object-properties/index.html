@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+    <div id="mocha"></div>
+
+    <script>
+        // Sum object properties
+        // importance: 5
+        // We have an object storing salaries of our team:
+
+        // let salaries = {
+        // John: 100,
+        // Ann: 160,
+        // Pete: 130
+        // }
+        // Write the code to sum all salaries and store in the variable sum. Should be 390 in the example above.
+
+        // If salaries is empty, then the result must be 0.
+
+        "use strict";
+
+        /**
+         * Returns {number} sum of all {number} properties in the given {object}.
+         * 
+         * @param {object} obj which properties are to be used.
+         * @return {number} sum of all {number} properties in the given {object}.
+         */
+        function sumAllProps(obj) {
+            let sum = 0;
+            if (obj == null || typeof obj !== "object") return sum;
+
+            for (let val of Object.values(obj)) {
+                if (typeof val === "number") {
+                    sum += val
+                }
+            }
+            return sum;
+        }
+
+    </script>
+
+    <script src="test.js"></script>
+    <script>
+        mocha.run();
+    </script>
+
+</body>
+
+</html>
