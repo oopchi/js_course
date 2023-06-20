@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+    <div id="mocha"></div>
+
+    <script>
+        // Hello, object
+        // importance: 5
+        // Write the code, one line for each action:
+
+        // Create an empty object user.
+        // Add the property name with the value John.
+        // Add the property surname with the value Smith.
+        // Change the value of the name to Pete.
+        // Remove the property name from the object.
+
+        "use strict";
+        /**
+         * Returns true if an {object} has any properties
+         * @param {object} obj to evaluate
+         * @return {boolean} whether an object has any properties
+         */
+        function isEmpty(obj) {
+            return Object.keys(obj).length > 0
+        }
+
+    </script>
+
+    <script src="test.js"></script>
+    <script>
+        mocha.run();
+    </script>
+
+</body>
+
+</html>
