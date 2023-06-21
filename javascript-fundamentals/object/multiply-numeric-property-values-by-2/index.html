@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+    <div id="mocha"></div>
+
+    <script>
+        // Sum object properties
+        // importance: 5
+        // We have an object storing salaries of our team:
+
+        // let salaries = {
+        // John: 100,
+        // Ann: 160,
+        // Pete: 130
+        // }
+        // Write the code to sum all salaries and store in the variable sum. Should be 390 in the example above.
+
+        // If salaries is empty, then the result must be 0.
+
+        "use strict";
+        /**
+         * Multiply all numeric property values of {object} obj by 2.
+         * @param {object} obj {number} values multiplied by 2 in-place.
+         */
+        function mulBy2(obj) {
+            if (obj == null) return;
+
+            for (let prop in obj) {
+                if (typeof obj[prop] === "number") {
+                    obj[prop] *= 2;
+                }
+            }
+        }
+
+    </script>
+
+    <script src="test.js"></script>
+    <script>
+        mocha.run();
+    </script>
+
+</body>
+
+</html>
