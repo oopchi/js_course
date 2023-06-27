@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ucFirst(str) {
+            if (!str) return str;
+
+            let newStr = str.charAt(0).toLocaleUpperCase();
+
+            if (str.length > 1) {
+                newStr += str.slice(1);
+            }
+
+            return newStr;
+        }
+
+    </script>
+</body>
+
+</html>
