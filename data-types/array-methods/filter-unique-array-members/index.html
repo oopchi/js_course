@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Filter unique array members
+        // importance: 4
+        // Let arr be an array.
+
+        // Create a function unique(arr) that should return an array with unique items of arr.
+
+        // For instance:
+
+        // function unique(arr) {
+        // /* your code */
+        // }
+
+        // let strings = ["Hare", "Krishna", "Hare", "Krishna",
+        // "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        // ];
+
+        // alert( unique(strings) ); // Hare, Krishna, :-O
+
+        function unique(arr) {
+            /* your code */
+
+            // possible solution
+            // return Array.from((new Set(arr)));
+
+            let ans = new Set(arr);
+            ans.toString = (function () {
+                str = "";
+                counter = 0;
+                for (let val of this) {
+                    str += val;
+                    if (++counter <= this.size - 1) {
+                        str += ", ";
+                    }
+                }
+                return str;
+            }).bind(ans);
+
+            return ans;
+        }
+
+        let strings = ["Hare", "Krishna", "Hare", "Krishna",
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+        alert(unique(strings)); // Hare, Krishna, :-O
+    </script>
+</body>
+
+</html>
