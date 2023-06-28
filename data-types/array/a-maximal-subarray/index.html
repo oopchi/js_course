@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // A maximal subarray
+        // importance: 2
+        // The input is an array of numbers, e.g. arr = [1, -2, 3, 4, -9, 6].
+
+        // The task is: find the contiguous subarray of arr with the maximal sum of items.
+
+        // Write the function getMaxSubSum(arr) that will return that sum.
+
+        // For instance:
+
+        // getMaxSubSum([-1, 2, 3, -9]) == 5 (the sum of highlighted items)
+        // getMaxSubSum([2, -1, 2, 3, -9]) == 6
+        // getMaxSubSum([-1, 2, 3, -9, 11]) == 11
+        // getMaxSubSum([-2, -1, 1, 2]) == 3
+        // getMaxSubSum([100, -9, 2, -3, 5]) == 100
+        // getMaxSubSum([1, 2, 3]) == 6 (take all)
+        // If all items are negative, it means that we take none (the subarray is empty), so the sum is zero:
+
+        // getMaxSubSum([-1, -2, -3]) = 0
+        // Please try to think of a fast solution: O(n2) or even O(n) if you can.
+
+        function getMaxSubSum(arr) {
+            if (!arr || arr.length == 0) return NaN;
+            let arrCopy = [...arr];
+
+            let ans = arr[0];
+            for (let i = 1; i < arrCopy.length; i++) {
+                // arr[i] will contain the maximum contiguous subarray until index i
+                // if arr[i] itself is greater than arr[i] + maximum contiguous subarray untill arr[i-1], then don't arr[i] will be a new contiguous array containing only itself till that point.
+                arr[i] = Math.max(arr[i], arr[i] + arr[i - 1]);
+
+                // update value of [ans] if arr[i] is greater than [ans]
+                ans = Math.max(ans, arr[i]);
+            }
+
+            return ans;
+        }
+
+        console.log(getMaxSubSum([-1, 2, 3, -9]) == 5);
+        console.log(getMaxSubSum([2, -1, 2, 3, -9]) == 6);
+        console.log(getMaxSubSum([-1, 2, 3, -9, 11]) == 11);
+        console.log(getMaxSubSum([-2, -1, 1, 2]) == 3);
+        console.log(getMaxSubSum([100, -9, 2, -3, 5]) == 100);
+        console.log(getMaxSubSum([1, 2, 3]) == 6);
+
+    </script>
+</body>
+
+</html>
