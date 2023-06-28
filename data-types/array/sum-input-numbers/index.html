@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Sum input numbers
+        // importance: 4
+        // Write the function sumInput() that:
+
+        // Asks the user for values using prompt and stores the values in the array.
+        // Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+        // Calculates and returns the sum of array items.
+        // P.S. A zero 0 is a valid number, please don’t stop the input on zero.
+
+        function Calculator() { }
+        Calculator.prototype.arr = [];
+        Calculator.prototype.sumInput = function () {
+            this.clearArray();
+            this.getNumbers();
+            return this.sumArray();
+        };
+
+        Calculator.prototype.clearArray = function () {
+            this.arr = [];
+        };
+
+        Calculator.prototype.sumArray = function () {
+            return this.arr.length == 0 ? NaN : this.arr.reduce((prev, curr) => prev + curr);
+        };
+
+        Calculator.prototype.getNumbers = function () {
+            while (this.getNumber());
+        };
+
+        /**
+         * Returns true if input is a number.
+         * If input is number, push the input to the array.
+         * 
+         * @return {boolean} isNumber
+         */
+        Calculator.prototype.getNumber = function () {
+            let input = prompt("enter a number");
+            if (!input || input === "" || !isFinite(input)) return false;
+
+            this.arr.push(+input);
+            return true;
+        };
+
+        let calc = new Calculator();
+        console.log(calc.sumInput());
+
+    </script>
+</body>
+
+</html>
