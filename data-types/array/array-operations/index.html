@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Array operations.
+        // importance: 5
+        // Let’s try 5 array operations.
+
+        // Create an array styles with items “Jazz” and “Blues”.
+        let styles = new Proxy(["Jazz", "Blues"], {
+            set(target, prop, value, receiver) {
+                Reflect.set(...arguments);
+                console.log(target);
+
+                return true;
+            }
+        });
+
+        // Append “Rock-n-Roll” to the end.
+        styles.push("Rock-n-Roll");
+
+        // Replace the value in the middle with “Classics”. Your code for finding the middle value should work for any arrays with odd length.
+        let stylesLength = styles.length;
+        let midIndex = Math.floor(stylesLength / 2);
+        styles[midIndex] = "Classics";
+
+        // Strip off the first value of the array and show it.
+        styles.shift(0);
+
+        // Prepend Rap and Reggae to the array.
+        styles.unshift("Rap", "Reggae");
+
+        // The array in the process:
+
+        // Jazz, Blues
+        // Jazz, Blues, Rock-n-Roll
+        // Jazz, Classics, Rock-n-Roll
+        // Classics, Rock-n-Roll
+        // Rap, Reggae, Classics, Rock-n-Roll
+
+
+    </script>
+</body>
+
+</html>
