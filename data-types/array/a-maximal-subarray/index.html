@@ -32,10 +32,9 @@
 
         function getMaxSubSum(arr) {
             if (!arr || arr.length == 0) return NaN;
-            let arrCopy = [...arr];
 
             let ans = arr[0];
-            for (let i = 1; i < arrCopy.length; i++) {
+            for (let i = 1; i < arr.length; i++) {
                 // arr[i] will contain the maximum contiguous subarray until index i
                 // if arr[i] itself is greater than arr[i] + maximum contiguous subarray untill arr[i-1], then don't arr[i] will be a new contiguous array containing only itself till that point.
                 arr[i] = Math.max(arr[i], arr[i] + arr[i - 1]);
