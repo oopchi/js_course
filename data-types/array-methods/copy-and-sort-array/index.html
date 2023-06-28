@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Copy and sort array
+        // importance: 5
+        // We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+
+        // Create a function copySorted(arr) that returns such a copy.
+
+        // let arr = ["HTML", "JavaScript", "CSS"];
+
+        // let sorted = copySorted(arr);
+
+        // alert( sorted ); // CSS, HTML, JavaScript
+        // alert( arr ); // HTML, JavaScript, CSS (no changes)
+
+        function merge(left, right) {
+            let out = [];
+
+            let i = 0, j = 0;
+            while (i < left.length && j < right.length) {
+                if (left[i] < right[i]) {
+                    out.push(left[i++]);
+                } else {
+                    out.push(right[j++]);
+                }
+            }
+
+            while (i < left.length) {
+                out.push(left[i++]);
+            }
+
+            while (j < right.length) {
+                out.push(right[j++]);
+            }
+
+            return out;
+        }
+
+        function divideConquerSort(arr, l, r) {
+            if (l >= r) return arr.slice(l, r + 1);
+
+            let mid = (l + r) / 2;
+
+            left = divideConquerSort(arr, l, mid);
+            right = divideConquerSort(arr, mid + 1, r);
+
+            return merge(left, right);
+        }
+
+        function copySorted(arr) {
+            return divideConquerSort(arr, 0, arr.length - 1);
+        }
+
+        let arr = ["HTML", "JavaScript", "CSS"];
+
+        let sorted = copySorted(arr);
+
+        alert(sorted); // CSS, HTML, JavaScript
+        alert(arr); // HTML, JavaScript, CSS (no changes)
+    </script>
+</body>
+
+</html>
