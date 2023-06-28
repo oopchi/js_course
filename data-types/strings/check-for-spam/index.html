@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function checkSpam(str) {
+            return str.match(/(viagra)|(xxx)/i) != null;
+        }
+
+        console.log(checkSpam('buy ViAgRA now') == true);
+        console.log(checkSpam('free xxxxx') == true);
+        console.log(checkSpam("innocent rabbit") == false);
+    </script>
+</body>
+
+</html>
