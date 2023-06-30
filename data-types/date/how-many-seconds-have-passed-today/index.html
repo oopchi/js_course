@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // How many seconds have passed today?
+        // importance: 5
+        // Write a function getSecondsToday() that returns the number of seconds from the beginning of today.
+
+        // For instance, if now were 10:00 am, and there was no daylight savings shift, then:
+
+        // getSecondsToday() == 36000 // (3600 * 10)
+        // The function should work in any day. That is, it should not have a hard-coded value of “today”.
+
+        function getSecondsToday() {
+            const now = new Date();
+            return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+        }
+
+        alert(getSecondsToday());
+    </script>
+</body>
+
+</html>
