@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Turn the object into JSON and back
+        // importance: 5
+        // Turn the user into JSON and then read it back into another variable.
+
+        // let user = {
+        // name: "John Smith",
+        // age: 35
+        // };
+
+        let user = {
+            name: "John Smith",
+            age: 35
+        };
+
+        Object.defineProperty(user, 'isEqual', {
+            value: function (o) {
+                for (let k in user) {
+                    if (!(k in o)) return false;
+                }
+
+                return true;
+            },
+            writable: false,
+            enumerable: false,
+            configurable: false,
+        });
+
+        const userJSONString = JSON.stringify(user);
+
+        const userJSON = JSON.parse(userJSONString);
+
+        alert(userJSONString);
+        alert(user.isEqual(userJSON));
+    </script>
+</body>
+
+</html>
