@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // European weekday
+        // importance: 5
+        // European countries have days of week starting with Monday (number 1), then Tuesday (number 2) and till Sunday (number 7). Write a function getLocalDay(date) that returns the “European” day of week for date.
+
+        // let date = new Date(2012, 0, 3);  // 3 Jan 2012
+        // alert( getLocalDay(date) );       // tuesday, should show 2
+
+        function getLocalDay(date) {
+            return ((date.getDay() - 1) % 7) + 1;
+        }
+
+        let date = new Date(2012, 0, 3);  // 3 Jan 2012
+        alert(getLocalDay(date));       // tuesday, should show 2
+    </script>
+</body>
+
+</html>
